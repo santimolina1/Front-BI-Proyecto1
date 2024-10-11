@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import axios from 'axios';
 
 const Prediction = () => {
   const [opinions, setOpinions] = useState(['']);
@@ -16,12 +17,12 @@ const Prediction = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    // Simulación de llamada a API
-    const predictions = opinions.map(opinion => ({
-      ods: 'ODS 4: Educación de Calidad',
-      porcentaje: Math.floor(Math.random() * 100) + '%'
-    }));
-    setResults(predictions);
+    try {
+      const response = await axios.post('http://127.0.0.1:8000/prediccion/', opinions.map(opinion => ({ opinion })));
+      setResults(response.data); // Asume que tu backend devuelve una lista de predicciones
+    } catch (error) {
+      console.error('Error haciendo la predicción:', error);
+    }
   };
 
   return (
