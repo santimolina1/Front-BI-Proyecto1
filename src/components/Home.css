@@ -1,0 +1,59 @@
+.home-container {
+    font-family: Arial, sans-serif;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  .banner img {
+    width: 15%; /* Ajuste de tamaño a 10% del contenedor */
+    display: block; /* Hace que la imagen sea un elemento de bloque */
+    margin: 0 auto; /* Centra la imagen horizontalmente */
+    border-radius: 10px; /* Opcional: bordes redondeados */
+  }
+  
+  .intro-section {
+    text-align: center;
+    margin-bottom: 40px;
+  }
+  
+  .intro-section h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+  }
+  
+  .intro-section p {
+    font-size: 1.25rem;
+    line-height: 1.8;
+    color: #555;
+  }
+  
+  .ods-section {
+    display: flex;
+    justify-content: space-around;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  
+  .ods-item {
+    text-align: center;
+    flex: 1 1 30%;
+    margin-bottom: 40px;
+  }
+  
+  .ods-item img {
+    width: 100px;
+    height: 100px;
+    margin-bottom: 15px;
+  }
+  
+  .ods-item h2 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+  }
+  
+  .ods-item p {
+    font-size: 1rem;
+    color: #777;
+  }
+  
