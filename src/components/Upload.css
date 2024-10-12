@@ -1,70 +1,42 @@
-.upload-container {
-    max-width: 600px;
-    margin: 0 auto;
-    padding: 20px;
-    font-family: Arial, sans-serif;
-    background-color: #f9f9f9;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+.results-container {
+    margin-top: 20px;
     text-align: center;
   }
   
-  .title {
-    color: #4CAF50;
-    font-size: 2.2rem;
-    margin-bottom: 20px;
-  }
-  
-  .upload-form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  .file-input {
-    font-size: 1rem;
-    padding: 10px;
-    border: 2px solid #ccc;
-    border-radius: 5px;
-    margin-bottom: 20px;
+  .results-table {
     width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
   }
   
-  .file-input:focus {
-    border-color: #4CAF50;
-    outline: none;
+  .results-table th, .results-table td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: center;
   }
   
-  .upload-btn {
+  .results-table th {
     background-color: #4CAF50;
     color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
+  }
+  
+  .results-table td {
     font-size: 1rem;
-    transition: background-color 0.3s ease;
   }
   
-  .upload-btn:hover {
-    background-color: #45a049;
-  }
-  
-  .status-message {
-    margin-top: 20px;
-    padding: 15px;
-    border-radius: 5px;
-    font-size: 1.1rem;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  }
-  
-  .status-message.success {
+  .success {
     background-color: #d4edda;
     color: #155724;
+    padding: 10px;
+    margin-top: 20px;
+    border-radius: 5px;
   }
   
-  .status-message.error {
+  .error {
     background-color: #f8d7da;
     color: #721c24;
+    padding: 10px;
+    margin-top: 20px;
+    border-radius: 5px;
   }
   

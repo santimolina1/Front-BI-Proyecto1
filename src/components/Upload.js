@@ -4,6 +4,7 @@ import './Upload.css'; // Importamos el archivo CSS
 
 const Upload = () => {
   const [file, setFile] = useState(null);
+  const [results, setResults] = useState(null);
   const [uploadStatus, setUploadStatus] = useState('');
 
   const handleFileChange = (e) => {
@@ -22,7 +23,8 @@ const Upload = () => {
             'Content-Type': 'multipart/form-data'
           }
         });
-        setUploadStatus('Archivo subido con éxito. Resultados: ' + JSON.stringify(response.data));
+        setResults(response.data); // Guardamos los resultados del entrenamiento
+        setUploadStatus('Archivo subido con éxito.');
       } catch (error) {
         console.error('Error subiendo el archivo:', error);
         setUploadStatus('Error al subir el archivo.');
@@ -30,6 +32,12 @@ const Upload = () => {
     } else {
       alert('Por favor, seleccione un archivo.');
     }
+  };
+
+  const odsMapping = {
+    1: 'ODS 3: Salud y Bienestar',
+    2: 'ODS 4: Educación de Calidad',
+    3: 'ODS 5: Igualdad de Género'
   };
 
   return (
@@ -43,6 +51,33 @@ const Upload = () => {
       {uploadStatus && (
         <div className={`status-message ${uploadStatus.includes('éxito') ? 'success' : 'error'}`}>
           <h2>{uploadStatus}</h2>
+        </div>
+      )}
+
+      {/* Mostrar resultados si hay */}
+      {results && (
+        <div className="results-container">
+          <h2>Resultados del Reentrenamiento</h2>
+          <table className="results-table">
+            <thead>
+              <tr>
+                <th>ODS</th>
+                <th>Precisión</th>
+                <th>Recall</th>
+                <th>F1-Score</th>
+              </tr>
+            </thead>
+            <tbody>
+              {Object.keys(results).map((key) => (
+                <tr key={key}>
+                  <td>{odsMapping[key]}</td>
+                  <td>{results[key]["precision"].toFixed(2)}</td>
+                  <td>{results[key]["recall"].toFixed(2)}</td>
+                  <td>{results[key]["f1-score"].toFixed(2)}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
         </div>
       )}
     </div>
