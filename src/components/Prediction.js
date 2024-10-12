@@ -61,7 +61,7 @@ const Prediction = () => {
           {results.map((result, index) => (
             <div key={index} className="result-item">
               <h3>Opinión {result.opinion}</h3>
-              <p>Clase predicha: {result.clase_predicha}</p>
+              <p>Predicción: ODS {result.clase_predicha}</p>
               <h4>Probabilidades:</h4>
               <ul>
                 {Object.keys(result.probabilidades).map((ods, i) => (

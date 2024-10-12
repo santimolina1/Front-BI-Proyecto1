@@ -67,6 +67,7 @@
   
   .results-container {
     margin-top: 40px;
+    text-align: left; /* Alineamos los resultados a la izquierda */
   }
   
   .result-item {
@@ -75,19 +76,24 @@
     border-radius: 5px;
     margin-bottom: 20px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    text-align: left; /* Alineamos el contenido a la izquierda */
   }
   
   .result-item h3 {
     color: #333;
     margin-bottom: 10px;
+    text-align: left; /* Alineamos el título a la izquierda */
   }
   
   .result-item ul {
     padding-left: 20px;
+    text-align: left; /* Aseguramos que los elementos de la lista estén alineados a la izquierda */
   }
   
   .result-item li {
     list-style: disc;
     margin-bottom: 5px;
+    text-align: left; /* Alineamos los ítems de la lista a la izquierda */
   }
+  
   
