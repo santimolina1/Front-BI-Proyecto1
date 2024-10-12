@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import './Upload.css'; // Importamos el archivo CSS
 
 const Upload = () => {
   const [file, setFile] = useState(null);
@@ -32,15 +33,15 @@ const Upload = () => {
   };
 
   return (
-    <div style={{ padding: '20px' }}>
-      <h1>Subir archivo para reentrenar modelo</h1>
-      <form onSubmit={handleSubmit}>
-        <input type="file" accept=".xlsx" onChange={handleFileChange} />
-        <button type="submit" style={{ marginTop: '10px' }}>Subir archivo</button>
+    <div className="upload-container">
+      <h1 className="title">Subir archivo para reentrenar modelo</h1>
+      <form className="upload-form" onSubmit={handleSubmit}>
+        <input type="file" accept=".xlsx" onChange={handleFileChange} className="file-input" />
+        <button type="submit" className="btn upload-btn">Subir archivo</button>
       </form>
 
       {uploadStatus && (
-        <div style={{ marginTop: '20px' }}>
+        <div className={`status-message ${uploadStatus.includes('éxito') ? 'success' : 'error'}`}>
           <h2>{uploadStatus}</h2>
         </div>
       )}

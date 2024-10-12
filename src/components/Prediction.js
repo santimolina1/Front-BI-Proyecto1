@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import './Prediction.css'; // Importamos el archivo CSS
 
 const Prediction = () => {
   const [opinions, setOpinions] = useState(['']);
@@ -21,39 +22,44 @@ const Prediction = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      // Enviar las opiniones en el formato esperado por el backend
       const response = await axios.post('http://127.0.0.1:8000/prediccion/', opinions.map(opinion => ({ opinion })));
-      setResults(response.data); // Asumimos que el backend devuelve los resultados en el formato correcto
+      setResults(response.data);
     } catch (error) {
       console.error('Error haciendo la predicción:', error);
     }
   };
 
   return (
-    <div style={{ padding: '20px' }}>
-      <h1>Predicción de ODS</h1>
-      <form onSubmit={handleSubmit}>
+    <div className="prediction-container">
+      <h1 className="title">Predicción de ODS</h1>
+      <form className="prediction-form" onSubmit={handleSubmit}>
         {opinions.map((opinion, index) => (
-          <div key={index} style={{ marginBottom: '10px' }}>
+          <div key={index} className="input-group">
             <label>Opinión {index + 1}:</label>
             <input
               type="text"
               value={opinion}
               onChange={(e) => handleInputChange(index, e.target.value)}
-              style={{ width: '100%', padding: '5px', margin: '5px 0' }}
+              className="input-field"
             />
           </div>
         ))}
-        <button type="button" onClick={addOpinion}>Agregar otra opinión</button>
-        <button type="submit" style={{ marginLeft: '10px' }}>Enviar</button>
+        <div className="button-group">
+          <button type="button" onClick={addOpinion} className="btn add-opinion">
+            Agregar otra opinión
+          </button>
+          <button type="submit" className="btn submit-btn">
+            Enviar
+          </button>
+        </div>
       </form>
 
       {/* Mostrar resultados si hay */}
       {results.length > 0 && (
-        <div style={{ marginTop: '20px' }}>
+        <div className="results-container">
           <h2>Resultados</h2>
           {results.map((result, index) => (
-            <div key={index} style={{ marginBottom: '20px' }}>
+            <div key={index} className="result-item">
               <h3>Opinión {result.opinion}</h3>
               <p>Clase predicha: {result.clase_predicha}</p>
               <h4>Probabilidades:</h4>
